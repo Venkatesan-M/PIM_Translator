@@ -156,72 +156,61 @@ acc_gen/fast:
 .PHONY : acc_gen/fast
 
 #=============================================================================
-# Target rules for targets named compiler_main
+# Target rules for targets named compiler_frontend
 
 # Build rule for target.
-compiler_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 compiler_main
-.PHONY : compiler_main
+compiler_frontend: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 compiler_frontend
+.PHONY : compiler_frontend
 
 # fast build rule for target.
-compiler_main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/build
-.PHONY : compiler_main/fast
+compiler_frontend/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/build
+.PHONY : compiler_frontend/fast
 
-src/backend/isa_generator.o: src/backend/isa_generator.cpp.o
-.PHONY : src/backend/isa_generator.o
+#=============================================================================
+# Target rules for targets named isa_backend
 
-# target to build an object file
-src/backend/isa_generator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/backend/isa_generator.cpp.o
-.PHONY : src/backend/isa_generator.cpp.o
+# Build rule for target.
+isa_backend: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 isa_backend
+.PHONY : isa_backend
 
-src/backend/isa_generator.i: src/backend/isa_generator.cpp.i
-.PHONY : src/backend/isa_generator.i
+# fast build rule for target.
+isa_backend/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/build
+.PHONY : isa_backend/fast
 
-# target to preprocess a source file
-src/backend/isa_generator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/backend/isa_generator.cpp.i
-.PHONY : src/backend/isa_generator.cpp.i
-
-src/backend/isa_generator.s: src/backend/isa_generator.cpp.s
-.PHONY : src/backend/isa_generator.s
-
-# target to generate assembly for a file
-src/backend/isa_generator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/backend/isa_generator.cpp.s
-.PHONY : src/backend/isa_generator.cpp.s
-
-src/compiler_main.o: src/compiler_main.cpp.o
-.PHONY : src/compiler_main.o
+src/backend/IsaGenerator.o: src/backend/IsaGenerator.cpp.o
+.PHONY : src/backend/IsaGenerator.o
 
 # target to build an object file
-src/compiler_main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/compiler_main.cpp.o
-.PHONY : src/compiler_main.cpp.o
+src/backend/IsaGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/backend/IsaGenerator.cpp.o
+.PHONY : src/backend/IsaGenerator.cpp.o
 
-src/compiler_main.i: src/compiler_main.cpp.i
-.PHONY : src/compiler_main.i
+src/backend/IsaGenerator.i: src/backend/IsaGenerator.cpp.i
+.PHONY : src/backend/IsaGenerator.i
 
 # target to preprocess a source file
-src/compiler_main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/compiler_main.cpp.i
-.PHONY : src/compiler_main.cpp.i
+src/backend/IsaGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/backend/IsaGenerator.cpp.i
+.PHONY : src/backend/IsaGenerator.cpp.i
 
-src/compiler_main.s: src/compiler_main.cpp.s
-.PHONY : src/compiler_main.s
+src/backend/IsaGenerator.s: src/backend/IsaGenerator.cpp.s
+.PHONY : src/backend/IsaGenerator.s
 
 # target to generate assembly for a file
-src/compiler_main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/compiler_main.cpp.s
-.PHONY : src/compiler_main.cpp.s
+src/backend/IsaGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/backend/IsaGenerator.cpp.s
+.PHONY : src/backend/IsaGenerator.cpp.s
 
 src/frontend/clang_frontend.o: src/frontend/clang_frontend.cpp.o
 .PHONY : src/frontend/clang_frontend.o
 
 # target to build an object file
 src/frontend/clang_frontend.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/frontend/clang_frontend.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/src/frontend/clang_frontend.cpp.o
 .PHONY : src/frontend/clang_frontend.cpp.o
 
 src/frontend/clang_frontend.i: src/frontend/clang_frontend.cpp.i
@@ -229,7 +218,7 @@ src/frontend/clang_frontend.i: src/frontend/clang_frontend.cpp.i
 
 # target to preprocess a source file
 src/frontend/clang_frontend.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/frontend/clang_frontend.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/src/frontend/clang_frontend.cpp.i
 .PHONY : src/frontend/clang_frontend.cpp.i
 
 src/frontend/clang_frontend.s: src/frontend/clang_frontend.cpp.s
@@ -237,15 +226,40 @@ src/frontend/clang_frontend.s: src/frontend/clang_frontend.cpp.s
 
 # target to generate assembly for a file
 src/frontend/clang_frontend.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/frontend/clang_frontend.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/src/frontend/clang_frontend.cpp.s
 .PHONY : src/frontend/clang_frontend.cpp.s
+
+src/isa_backend.o: src/isa_backend.cpp.o
+.PHONY : src/isa_backend.o
+
+# target to build an object file
+src/isa_backend.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/isa_backend.cpp.o
+.PHONY : src/isa_backend.cpp.o
+
+src/isa_backend.i: src/isa_backend.cpp.i
+.PHONY : src/isa_backend.i
+
+# target to preprocess a source file
+src/isa_backend.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/isa_backend.cpp.i
+.PHONY : src/isa_backend.cpp.i
+
+src/isa_backend.s: src/isa_backend.cpp.s
+.PHONY : src/isa_backend.s
+
+# target to generate assembly for a file
+src/isa_backend.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/isa_backend.cpp.s
+.PHONY : src/isa_backend.cpp.s
 
 src/passes/MatrixMulPass.o: src/passes/MatrixMulPass.cpp.o
 .PHONY : src/passes/MatrixMulPass.o
 
 # target to build an object file
 src/passes/MatrixMulPass.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/passes/MatrixMulPass.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/src/passes/MatrixMulPass.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/passes/MatrixMulPass.cpp.o
 .PHONY : src/passes/MatrixMulPass.cpp.o
 
 src/passes/MatrixMulPass.i: src/passes/MatrixMulPass.cpp.i
@@ -253,7 +267,8 @@ src/passes/MatrixMulPass.i: src/passes/MatrixMulPass.cpp.i
 
 # target to preprocess a source file
 src/passes/MatrixMulPass.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/passes/MatrixMulPass.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/src/passes/MatrixMulPass.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/passes/MatrixMulPass.cpp.i
 .PHONY : src/passes/MatrixMulPass.cpp.i
 
 src/passes/MatrixMulPass.s: src/passes/MatrixMulPass.cpp.s
@@ -261,7 +276,8 @@ src/passes/MatrixMulPass.s: src/passes/MatrixMulPass.cpp.s
 
 # target to generate assembly for a file
 src/passes/MatrixMulPass.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_main.dir/build.make CMakeFiles/compiler_main.dir/src/passes/MatrixMulPass.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compiler_frontend.dir/build.make CMakeFiles/compiler_frontend.dir/src/passes/MatrixMulPass.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/isa_backend.dir/build.make CMakeFiles/isa_backend.dir/src/passes/MatrixMulPass.cpp.s
 .PHONY : src/passes/MatrixMulPass.cpp.s
 
 # Help Target
@@ -275,16 +291,17 @@ help:
 	@echo "... acc_gen"
 	@echo "... intrinsics_gen"
 	@echo "... omp_gen"
-	@echo "... compiler_main"
-	@echo "... src/backend/isa_generator.o"
-	@echo "... src/backend/isa_generator.i"
-	@echo "... src/backend/isa_generator.s"
-	@echo "... src/compiler_main.o"
-	@echo "... src/compiler_main.i"
-	@echo "... src/compiler_main.s"
+	@echo "... compiler_frontend"
+	@echo "... isa_backend"
+	@echo "... src/backend/IsaGenerator.o"
+	@echo "... src/backend/IsaGenerator.i"
+	@echo "... src/backend/IsaGenerator.s"
 	@echo "... src/frontend/clang_frontend.o"
 	@echo "... src/frontend/clang_frontend.i"
 	@echo "... src/frontend/clang_frontend.s"
+	@echo "... src/isa_backend.o"
+	@echo "... src/isa_backend.i"
+	@echo "... src/isa_backend.s"
 	@echo "... src/passes/MatrixMulPass.o"
 	@echo "... src/passes/MatrixMulPass.i"
 	@echo "... src/passes/MatrixMulPass.s"

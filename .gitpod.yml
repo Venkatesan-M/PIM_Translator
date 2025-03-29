@@ -1,0 +1,13 @@
+tasks:
+  # Task to install general utilities
+  - name: utils
+    before: |
+      sudo apt update
+      sudo apt-get install -y tree
+      clear
+      exit
+  - name: setup
+    before: |
+      sudo apt install -y llvm clang
+      clear
+      exit

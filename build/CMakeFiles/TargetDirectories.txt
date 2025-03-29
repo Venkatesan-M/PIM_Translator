@@ -1,0 +1,6 @@
+/workspace/PIM_Translator/build/CMakeFiles/intrinsics_gen.dir
+/workspace/PIM_Translator/build/CMakeFiles/omp_gen.dir
+/workspace/PIM_Translator/build/CMakeFiles/acc_gen.dir
+/workspace/PIM_Translator/build/CMakeFiles/compiler_main.dir
+/workspace/PIM_Translator/build/CMakeFiles/edit_cache.dir
+/workspace/PIM_Translator/build/CMakeFiles/rebuild_cache.dir

@@ -48,7 +48,6 @@ DecodedInstruction decodeInstruction(uint32_t instruction) {
     }
     
     // Determine read/write flags based on opcode and other bits
-    // This is a simplified approach - you may need to adjust based on your ISA
     decoded.read = (opcode == 1) && (decoded.memRow != 0);
     decoded.write = (opcode == 1) && ((instruction & 0x40) != 0); // Assuming bit 6 indicates write
     
@@ -83,16 +82,14 @@ std::string generateAssemblyCode(const DecodedInstruction& instr) {
 // Generate a simple ISA sequence for a given annotated multiplication instruction.
 std::vector<uint32_t> generateISAForOperation(const Instruction &I, IsaGenerator &isaGen) {
     std::vector<uint32_t> seq;
-    // For demonstration, we use core 1 for programming/execution to match your example
     uint8_t core = 1;
     
     // Generate more realistic memory addresses based on instruction index
-    // This is just a placeholder - you would use your actual algorithm
+    // This is just a placeholder
     static int instructionCount = 0;
     uint16_t baseAddr = 440 + (instructionCount % 4) * 8;
     instructionCount++;
     
-    // Generate a programming instruction for this operation
     seq.push_back(isaGen.generateProg(core));
     
     // Generate a sequence of execution instructions
